@@ -28,11 +28,15 @@ function ciaoAdvice() { return 'Bye-bye!'; }
 
 // Adding advices
 
-Ajaxpect.addBefore(thing, 'makeGreeting', aopizeAdvice); alert(thing.makeGreeting('world')); // Hello AOP world!
+Ajaxpect.addBefore(thing, 'makeGreeting', aopizeAdvice);
+alert(thing.makeGreeting('world')); // Hello AOP world!
 
-Ajaxpect.addAfter(thing, /make*/, shoutAdvice); alert(thing.makeGreeting('world')); // HELLO AOP WORLD!
+Ajaxpect.addAfter(thing, /make*/, shoutAdvice);
+alert(thing.makeGreeting('world')); // HELLO AOP WORLD!
 
-var filter = function(name) { return name.indexOf('Greet') != -1 } Ajaxpect.addAround(thing, filter, ciaoAdvice); alert(thing.makeGreeting('world')); // Bye-bye!
+var filter = function(name) { return name.indexOf('Greet') != -1 }
+Ajaxpect.addAround(thing, filter, ciaoAdvice);
+alert(thing.makeGreeting('world')); // Bye-bye!
 ```
 
 **Who uses Ajaxpect?**
